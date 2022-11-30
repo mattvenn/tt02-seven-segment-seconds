@@ -1,7 +1,7 @@
 --- 
 # TinyTapeout project information
 project:
-  wokwi_id:    349416827327087187        # If using wokwi, set this to your project's ID
+  wokwi_id:    349717996940296786        # If using wokwi, set this to your project's ID
 #  source_files:        # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. Source files must be in ./src
 #    - counter.v
 #    - decoder.v
@@ -18,8 +18,8 @@ documentation:
   discord:      ""      # Your discord handle - make sure to include the # part as well
   title:        "Convolutional Encoder"      # Project title
   description:  "A (7, 1/2) Convolutional Encoder following the CCSDS 131.0-B-4 standard."      # Short description of what your project does
-  how_it_works: ""      # Longer description of how the project works
-  how_to_test:  ""      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  how_it_works: "ToDo"      # Longer description of how the project works
+  how_to_test:  "To reset the shift register and encoder, pull the reset input (IN1) low and provide a clock cycle on the clock input (IN0). This resets the phase of the internal clock divider circuit. Pull the reset input (IN1) high again. Next pull the write_not_shift input (IN2) high to set the shift register to write mode. Set a 5-bit input into the shift registers using inputs (IN3 to IN7), for example 0b100110. Provide two clock cycles on the clock input (IN0) to write the input into the shift register and clear the encoder. Pull the write_not_shift input (IN2) low to start shifting. The first output of the encoder should now be visible on the 7-segment display. Provide 2 x (6 + 5) - 1 = 21 clock pulses, for each clock pulse one output bit is displayed on the 7 segment display."
   external_hw:  ""      # Describe any external hardware needed
   language:     "wokwi" # other examples include Verilog, Amaranth, VHDL, etc
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
@@ -28,12 +28,12 @@ documentation:
   inputs:               # a description of what the inputs do
     - clock
     - reset
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - write_not_shift
+    - shift_input_0
+    - shift_input_1
+    - shift_input_2
+    - shift_input_3
+    - shift_input_4
   outputs:
     - segment a         # a description of what the outputs do
     - segment b
@@ -42,5 +42,5 @@ documentation:
     - segment e
     - segment f
     - segment g
-    - none
+    - segment dp (used to indicate clock)
 
