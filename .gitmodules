@@ -1,0 +1,3 @@
+[submodule "python_cpp_implementation/viterbi"]
+	path = python_cpp_implementation/viterbi
+	url = https://github.com/xukmin/viterbi
