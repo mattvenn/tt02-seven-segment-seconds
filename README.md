@@ -29,9 +29,12 @@ The output of the convolutional encoder serializes the two outputs in the order:
 
 ### Encoding a message
 
-To write to the shift registers pull the write_not_shift input (IN1) high and set a 6-bit binary input (using IN2 to IN7), for example 0b100110. Provide a clock cycle on the clock input (IN0) to write the input into the shift register and clear the encoder. Pull the write_not_shift input (IN2) low to start shifting. Provide 24 clock cycles (2 each for the 6 shift registers and 6 encoder registers 2x(6+6) = 24). After each clock cycle a 0 or 1 is displayed on the 8-segment display. The encoded output for the input 0b100110 is 0b101110010001101000111001 (left-to-right == first-to-last-bit displayed). 
+To write to the shift registers pull the write_not_shift input (IN1) high and set a 6-bit binary input (using IN2 to IN7), for example 0b100110. Provide a clock cycle on the clock input (IN0) to write the input into the shift register and clear the encoder. Pull the write_not_shift input (IN2) low to start shifting. Provide 24 clock cycles (2 each for the 6 shift registers and 6 encoder registers 2x(6+6) = 24). After each clock cycle a 0 or 1 is displayed on the 8-segment display. The encoded output for the input 0b100110 is 0b101110010001101000111001 (left-to-right == first-to-last-bit displayed).
+
+
 
 ### Decoding the message
+TODO
 
 ## Circuits overview
 The implemented WokWi design consists of a 6-bit shift register and the (7, 1/2) encoder as shown in the figure below. The shift register may be used to quickly input a 6-bit message for encoding. Alternatively the encoder can be used fully serially by clocking data into the last input of the shift register (IN7).

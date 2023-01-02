@@ -229,7 +229,7 @@ def main():
 
     # Test encoding
     input_bitarray = [1, 0, 0, 1, 1, 0]
-    input_bitarray = input_bitarray + [0] * (K-7)
+    input_bitarray = input_bitarray + [0] * (K-1)
     output_bitarray = CCSDS_encode_bitarray(input_bitarray)
 
     print("Input:")
